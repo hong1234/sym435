@@ -55,16 +55,23 @@ tags:
 
 #https://symfony.com/doc/current/doctrine/pdo_session_storage.html
 #session in db stored
+
 #config/services.yaml
+
 Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler:
 arguments:
 - 'mysql:dbname=sym42; host=localhost; port=3306'
 - { db_table: 'sessions', db_username: root, db_password: vuanh123 }
+
 # config/packages/framework.yaml---------------------------
+
 framework:
+
 session:
+
 # ...
 handler_id: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+
 CREATE TABLE `sessions` (
 `sess_id` VARCHAR(128) NOT NULL PRIMARY KEY,
 `sess_data` BLOB NOT NULL,
@@ -73,8 +80,11 @@ CREATE TABLE `sessions` (
 ) COLLATE utf8mb4_bin, ENGINE = InnoDB;
 
 // test session setting
+
 // http://localhost:8000/session
+
 // test session getting
+
 // http://localhost:8000/session2
 
 
